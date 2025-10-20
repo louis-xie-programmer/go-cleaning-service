@@ -1,0 +1,36 @@
+{
+  "rules": {
+    "ecommerce_site_a": {
+      "root_xpath": "//div[@class='product-item']",
+      "fields": {
+        "title": {
+          "xpath": ".//h2[@class='title']/text()",
+          "regex": "(?P<name>.+)"
+        },
+        "price": {
+          "xpath": ".//span[@class='price']/text()",
+          "regex": "([0-9.]+)"
+        },
+        "url": {
+          "xpath": ".//a[@class='link']/@href"
+        }
+      },
+      "group_xpath": "//div[@class='product-list']/div"
+    },
+    "news_site_b": {
+      "root_xpath": "//div[@id='content']",
+      "fields": {
+        "headline": {
+          "xpath": ".//h1/text()"
+        },
+        "publish_time": {
+          "xpath": ".//div[@class='date']/text()",
+          "regex": "([0-9]{4}-[0-9]{2}-[0-9]{2})"
+        },
+        "body_text": {
+          "xpath": ".//div[@class='article-body']//p/text()"
+        }
+      }
+    }
+  }
+}
